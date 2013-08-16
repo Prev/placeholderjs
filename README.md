@@ -2,8 +2,10 @@
 
 Let working "placeholder" in Internet Explorer 9 lte
 
+not a jQuery Plugin
 
-# how to use
+
+## how to use
 
 import placeholder.js like this
 ```html

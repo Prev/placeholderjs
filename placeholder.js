@@ -17,7 +17,7 @@ function initPlaceholder() {
 	var placeholder;
 
 	for (var i=0; i<inputs.length; i++) {
-		if (inputs[i].placeholder) continue;
+		if (inputs[i].type != "text" || inputs[i].placeholder) continue;
 
 		if (inputs[i].getAttribute('placeholder'))
 			placeholder = inputs[i].getAttribute('placeholder');
