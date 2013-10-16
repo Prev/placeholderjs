@@ -4,7 +4,16 @@
 		<title>placeholder.js example</title>
 		<meta charset="utf-8">
 		
-		<script type="text/javascript" src="placeholder.js"></script>
+		<script type="text/javascript" src="placeholder-uncompressed.js"></script>
+		<script type="text/javascript">
+			function addNewInputText() {
+				var newInputText = document.createElement("input");
+				newInputText.type = "text";
+				newInputText.placeholder = "placeholder message";
+
+				document.body.appendChild(newInputText);
+			}
+		</script>
 	</head>
 
 	<body>
@@ -12,5 +21,8 @@
 		<input type="text" name="b"><br>
 		<input type="text" name="c" placeholder="placeholder message" style="color: blue"><br>
 		<input type="text" name="d" placeholder="placeholder message" value="default value"><br>
+		<input type="password" id="e" class="ccc" name="e" placeholder="input password"><br>
+
+		<button onclick="addNewInputText()">add new input text</button>
 	</body>
 </html>
