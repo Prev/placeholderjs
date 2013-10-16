@@ -17,9 +17,14 @@
 
 	function initPlaceholder() {
 		var inputs = d.getElementsByTagName('input');
+		var textareas = d.getElementsByTagName('textarea');
+		var i;
 
-		for (var i=0; i<inputs.length; i++)
+		for (i=0; i<inputs.length; i++)
 			setPlaceHolder(inputs[i]);
+
+		for (i=0; i<textareas.length; i++)
+			setPlaceHolder(textareas[i]);
 	}
 
 	function intervalHandler() {
@@ -32,7 +37,7 @@
 	function setPlaceHolder(inputText) {
 		var placeholder;
 		
-		if ((inputText.type != "text" && inputText.type != "password") || (inputText.placeholder && !intervalExcuting)) return;
+		if ((inputText.type != "text" && inputText.type != "password" && inputText.nodeName.toLowerCase() != "textarea") || (inputText.placeholder && !intervalExcuting)) return;
 		if (inputText.getAttribute('isPlaceHolderInited')) return;
 
 		if (inputText.getAttribute('placeholder'))
@@ -55,7 +60,7 @@
 		inputText.setAttribute('originalColor', inputText.style.color);
 
 
-		if (inputText.type == "text") {
+		if (inputText.type == "text" || inputText.nodeName.toLowerCase() == "textarea") {
 			if (!inputText.value) {
 				inputText.value = placeholder;
 				inputText.style.color = PLACE_HOLDER_COLOR;
