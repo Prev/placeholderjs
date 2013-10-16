@@ -2,11 +2,11 @@
  * [placeholder.js]
  * Let working "placeholder" in Internet Explorer 9 lte
  *
- * @version 1.1.1
+ * @version 1.1.2
  * @author prevdev@gmail.com
  *
  * source code in https://github.com/Prev/placeholderjs
- * built in 2013.8.16
+ * built in 2013.10.16
  *
  * MIT LICENSE
  */
@@ -131,7 +131,7 @@
 
 	function placeholderFocusHandler(event) {
 		var target = event.srcElement || this;
-		if (target.getAttribute('isPlaceholdered')) {
+		if (target.getAttribute('isPlaceholdered') && target.getAttribute('isPlaceholdered') != "false") {
 			target.value = "";
 			target.style.color = target.getAttribute('originalColor');
 			target.setAttribute('isPlaceholdered', false);
@@ -144,7 +144,8 @@
 			target.value = target.getAttribute('placeholder');
 			target.style.color = PLACE_HOLDER_COLOR;
 			target.setAttribute('isPlaceholdered', true);
-		}
+		}else
+			target.setAttribute('isPlaceholdered', false);
 	}
 
 	function passwordPlaceHolderFocusHandler(event) {
