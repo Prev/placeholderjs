@@ -2,7 +2,7 @@
  * [placeholder.js]
  * Let working "placeholder" in Internet Explorer 9 lte
  *
- * @version 1.1.3
+ * @version 1.1.4
  * @author prevdev@gmail.com
  *
  * source code in https://github.com/Prev/placeholderjs
@@ -15,6 +15,11 @@
 	var PLACE_HOLDER_COLOR = "#aaa";
 	var domBodyInnerHTML;
 
+	function isPlaceholderSupport() {
+		var input = document.createElement('input');
+		return ('placeholder' in input);
+	}
+
 	function initPlaceholder() {
 		var inputs = d.getElementsByTagName('input');
 		var textareas = d.getElementsByTagName('textarea');
@@ -26,11 +31,7 @@
 		for (i=0; i<textareas.length; i++)
 			setPlaceHolder(textareas[i]);
 
-		// checking supporting of placeholder
-		var temp = document.createElement("span");
-		temp.innerHTML = "<input type='text' placeholder='test'>";
-		
-		if (!temp.placeholder) {
+		if (!isPlaceholderSupport()) {
 			setInterval(intervalHandler, 20);
 		}
 	}
@@ -45,7 +46,7 @@
 	function setPlaceHolder(inputText) {
 		var placeholder;
 		
-		if ((inputText.type != "text" && inputText.type != "password" && inputText.nodeName.toLowerCase() != "textarea") || (inputText.placeholder && !intervalExcuting)) return;
+		if ((inputText.type != "text" && inputText.type != "password" && inputText.nodeName.toLowerCase() != "textarea") || (inputText.placeholder && isPlaceholderSupport())) return;
 		if (inputText.getAttribute('isPlaceHolderInited')) return;
 
 		if (inputText.getAttribute('placeholder'))
