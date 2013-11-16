@@ -2,7 +2,7 @@
 
 Let working "placeholder" in Internet Explorer 9 lte
 
-support `<input type="text">`, `<input type="password">`, `<textarea>` tag
+support &lt;input type="text"&gt;, &lt;input type="password"&gt;, &lt;textarea&gt; tag
 
 not a jQuery Plugin
 
