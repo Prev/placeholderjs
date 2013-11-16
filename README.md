@@ -1,6 +1,6 @@
 #placeholder.js
 
-Let working "placeholder" in Internet Explorer 9 lte
+Let working "placeholder" in Internet Explorer (ie) 9 lte
 
 support &lt;input type="text"&gt;, &lt;input type="password"&gt;, &lt;textarea&gt; tag
 
