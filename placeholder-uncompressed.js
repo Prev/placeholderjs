@@ -2,18 +2,17 @@
  * [placeholder.js]
  * Let working "placeholder" in Internet Explorer 9 lte
  *
- * @version 1.1.2
+ * @version 1.1.3
  * @author prevdev@gmail.com
  *
  * source code in https://github.com/Prev/placeholderjs
- * built in 2013.10.16
+ * built in 2013.11.16
  *
  * MIT LICENSE
  */
 
 (function (d) {
 	var PLACE_HOLDER_COLOR = "#aaa";
-	var intervalExcuting = false;
 	var domBodyInnerHTML;
 
 	function initPlaceholder() {
@@ -26,6 +25,14 @@
 
 		for (i=0; i<textareas.length; i++)
 			setPlaceHolder(textareas[i]);
+
+		// checking supporting of placeholder
+		var temp = document.createElement("span");
+		temp.innerHTML = "<input type='text' placeholder='test'>";
+		
+		if (!temp.placeholder) {
+			setInterval(intervalHandler, 20);
+		}
 	}
 
 	function intervalHandler() {
@@ -120,11 +127,6 @@
 				fakeInputText.onfocus = passwordPlaceHolderFocusHandler;
 				inputText.onblur = passwordPlaceHolderBlurHandler;
 			}
-		}
-
-		if (!intervalExcuting) {
-			setInterval(intervalHandler, 20);
-			intervalExcuting = true;
 		}
 
 	}
