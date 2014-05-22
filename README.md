@@ -18,7 +18,7 @@ that's it
 
 
 ## Demo
-[https://lab.prev.kr/opensources/placeholderjs/example.html](https://lab.prev.kr/opensources/placeholderjs/example.html)
+[https://prev.github.io/placeholderjs/example.html](https://prev.github.io/placeholderjs/example.html)
 
 
 ## License
